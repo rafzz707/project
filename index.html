@@ -1,1 +1,357 @@
-P
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Rafzz | Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+html,body{
+  width:100%;
+  min-height:100%;
+}
+
+body{
+  background:#08080c;
+  color:#eee;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND ANTI ZOOM */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(120deg,rgba(8,8,12,.55),rgba(8,8,12,.45)),
+    url('https://i.imgur.com/WGo6vA5.jpeg') center/cover no-repeat;
+  z-index:-1;
+}
+
+/* ================= CLICK ANIMATION GLOBAL ================= */
+.click{
+  cursor:pointer;
+  transition:
+    transform .12s ease,
+    box-shadow .12s ease,
+    background .2s ease;
+}
+.click:active{
+  transform:scale(.96);
+  box-shadow:0 0 0 4px rgba(0,255,160,.25);
+}
+
+/* ================= INTRO ================= */
+#intro{
+  position:fixed;
+  inset:0;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+.intro-box{
+  width:80%;
+  max-width:520px;
+  background:rgba(20,20,25,.85);
+  border-radius:26px;
+  overflow:hidden;
+  animation:float 3s ease-in-out infinite;
+}
+.intro-img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+.loading{
+  text-align:center;
+  padding:18px;
+  font-size:14px;
+  letter-spacing:3px;
+  opacity:.8;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+/* ================= NAV ================= */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:18px 40px;
+  background:rgba(10,10,15,.45);
+  backdrop-filter:blur(4px);
+  display:flex;
+  justify-content:space-between;
+  z-index:10;
+}
+nav h1{font-size:14px;letter-spacing:3px}
+nav ul{list-style:none;display:flex;gap:26px}
+nav li{opacity:.8}
+nav li:hover{opacity:1}
+
+/* ================= SECTION ================= */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:140px 40px;
+}
+
+/* ================= REVEAL (REPEAT) ================= */
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:.6s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= HOME ================= */
+.home{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+}
+.home-box{
+  background:rgba(20,20,25,.6);
+  border-radius:28px;
+  padding:50px;
+  max-width:620px;
+}
+.logo{
+  width:90px;
+  height:90px;
+  border-radius:22px;
+  margin-bottom:18px;
+}
+.home h2{font-size:40px}
+.home h3{margin-top:10px;opacity:.85}
+.home p{margin:25px 0;opacity:.75}
+
+.btn{
+  display:inline-block;
+  padding:14px 34px;
+  border-radius:30px;
+  background:#fff;
+  color:#000;
+  font-weight:600;
+}
+
+/* ================= SKILLS ================= */
+.skill{
+  background:rgba(20,20,25,.6);
+  padding:22px;
+  border-radius:18px;
+  margin-bottom:18px;
+}
+.skill-title{
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+  margin-bottom:8px;
+}
+.bar{
+  height:8px;
+  background:rgba(255,255,255,.12);
+  border-radius:10px;
+  overflow:hidden;
+}
+.fill{
+  height:100%;
+  width:0;
+  background:#00ffa0;
+  transition:width .6s ease;
+}
+
+/* ================= PROJECT ================= */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+.project{
+  background:rgba(20,20,25,.6);
+  padding:26px;
+  border-radius:20px;
+  opacity:0;
+  transform:translateY(30px);
+  transition:.45s ease;
+}
+.project.show{
+  opacity:1;
+  transform:translateY(0);
+}
+.project:hover{
+  transform:translateY(-6px);
+}
+
+/* ================= CONTACT ================= */
+.contact-box{
+  background:rgba(20,20,25,.6);
+  padding:40px;
+  border-radius:24px;
+  text-align:center;
+}
+.whatsapp-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  margin-top:20px;
+  padding:14px 30px;
+  border-radius:40px;
+  background:#25D366;
+  color:#000;
+  font-weight:700;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  text-align:center;
+  padding:40px;
+  opacity:.5;
+}
+
+@media(max-width:900px){
+  .home h2{font-size:32px}
+}
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="intro-box click">
+    <img class="intro-img" src="https://i.imgur.com/Jy77I9d.jpeg">
+    <div class="loading">LOADING...</div>
+  </div>
+</div>
+
+<nav>
+  <h1 class="click">RAFZZ</h1>
+  <ul>
+    <li class="click" onclick="go('home')">Home</li>
+    <li class="click" onclick="go('skills')">Skills</li>
+    <li class="click" onclick="go('projects')">Projects</li>
+    <li class="click" onclick="go('contact')">Contact</li>
+  </ul>
+</nav>
+
+<section id="home" class="home reveal">
+  <div class="home-box click">
+    <img class="logo" src="https://avatars.githubusercontent.com/u/9919?s=200">
+    <h2>Hi, I'm Rafzz</h2>
+    <h3><span id="typing"></span></h3>
+    <p>Professional web developer focused on smooth UI.</p>
+    <div class="btn click" onclick="go('projects')">View Projects</div>
+  </div>
+</section>
+
+<section id="skills" class="reveal">
+  <h2>Skills</h2>
+
+  <div class="skill reveal click">
+    <div class="skill-title"><span>HTML / CSS</span><span>90%</span></div>
+    <div class="bar"><div class="fill" data-skill="90"></div></div>
+  </div>
+
+  <div class="skill reveal click">
+    <div class="skill-title"><span>JavaScript</span><span>85%</span></div>
+    <div class="bar"><div class="fill" data-skill="85"></div></div>
+  </div>
+</section>
+
+<section id="projects" class="reveal">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project click">Professional Portfolio</div>
+    <div class="project click">Web Tools API</div>
+    <div class="project click">Landing Page</div>
+    <div class="project click">Company Profile</div>
+  </div>
+</section>
+
+<section id="contact" class="reveal">
+  <h2>Contact</h2>
+  <div class="contact-box click">
+    <p>Hubungi saya langsung via WhatsApp</p>
+    <a class="whatsapp-btn click" href="https://wa.me/6285353995615" target="_blank">
+      💬 Chat WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>© 2025 Rafzz</footer>
+
+<script>
+/* INTRO */
+window.onload=()=>{
+  setTimeout(()=>{
+    const i=document.getElementById('intro');
+    i.style.opacity=0;
+    i.style.transition='opacity .5s';
+    setTimeout(()=>i.remove(),500);
+  },2500);
+};
+
+/* SCROLL */
+function go(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+/* TYPING */
+const texts=["Web Developer","UI Designer","Freelancer"];
+let ti=0,tj=0,typing=true;
+const te=document.getElementById("typing");
+(function type(){
+  if(typing){
+    if(tj<texts[ti].length){
+      te.textContent+=texts[ti][tj++];
+      setTimeout(type,80);
+    }else{typing=false;setTimeout(type,1200);}
+  }else{
+    if(tj>0){
+      te.textContent=te.textContent.slice(0,-1);
+      tj--;setTimeout(type,40);
+    }else{
+      typing=true;
+      ti=(ti+1)%texts.length;
+      setTimeout(type,300);
+    }
+  }
+})();
+
+/* OBSERVER – REPEAT ANIMATION */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('show');
+      const bar=e.target.querySelector('.fill');
+      if(bar) bar.style.width=bar.dataset.skill+'%';
+    }else{
+      e.target.classList.remove('show');
+      const bar=e.target.querySelector('.fill');
+      if(bar) bar.style.width='0%';
+    }
+  });
+},{threshold:.3});
+
+document.querySelectorAll('.reveal,.project')
+  .forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
